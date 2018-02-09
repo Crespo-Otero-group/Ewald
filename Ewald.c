@@ -1367,7 +1367,7 @@ int main(){
 
                                 if(DEBUG > 0) fprintf(outfile,"\njapp imadmax-nrandpts_ck=%ld\n\n",imadmax-nrandpts_ck);
 
-                                sgelsy_(&M,&N,&NRHS,A,&LDA,B,&LDB,JPVT,&RCOND,&RANK,WORK,&INFO);
+                                dgelsy_(&M,&N,&NRHS,A,&LDA,B,&LDB,JPVT,&RCOND,&RANK,WORK,&LWORK,&INFO);
                                 /* printf("RCOND=%lf\n",RCOND);
                                  */
                                 if(INFO!=0) {fprintf(outfile,"\nInversion problem in lapack rountine  %ld\n\n\n",INFO); ignore=1; }
