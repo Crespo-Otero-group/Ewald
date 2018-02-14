@@ -33,7 +33,7 @@ Further instructions and usage are identical to the original program and can be 
 - The maximum amount of atoms in the unit cell has been increased to 1,000 
 - The maximum amount of atoms in the cluster has been increased to 10,000
 - Outputs an additional point charge file with a conveninent format with the extension .pts-cry
-- Uses the dgelsy_ from lapack instead of the deprecated dgelsx_ which is unavailable under some installations
+- Uses the dgelsy_ function from lapack instead of the deprecated dgelsx_ which is unavailable under some installations
 
 
 # References
