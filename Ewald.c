@@ -27,7 +27,7 @@ struct t_fgercm {
 }       fgercm;
 
 #define MAXPT 120000
-#define MAXUC 1000
+#define MAXUC 10000
 #define MAXMAD 10000
 #define MAXTYPE 2100
 #define MAX2N 20
