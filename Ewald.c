@@ -34,7 +34,7 @@ struct t_fgercm {
 #define MXPAR 42000 /* 35000 */
 #define MXEQU 2100  /* 1100 */
 
-FILE *ptsfilenw,*ptsfile,*ptsfilecry,*outfile,*ucellinfile,*rmspotfile,*seedfile,*pts,*defectfiler;
+FILE *ptsfilenw,*ptsfile,*ptsfilefro,*outfile,*ucellinfile,*rmspotfile,*seedfile,*pts,*defectfiler;
 FILE *clustfile,*potjamfil,*ucelloutfile,*ucellstdfile,*listfile,*pubfile;
 
 static double avepotuc2, rmspotuc2;
@@ -110,7 +110,7 @@ static double rmsmadSa[MAXMAD], rmsmad1a[MAXMAD], rmsmad2a[MAXMAD];
 static double rmscS, rmsc1, rmsc2, avecS, avec1, avec2;
 static double rmsS, rms1, rms2, aveS, ave1, ave2;
 static double aveSa[MAXMAD], ave1a[MAXMAD], ave2a[MAXMAD];
-char fileroot[60], filermspot[60], fileucell[60], fileout[60], filepts[60],fileptscry[60],fileptsnw[60],
+char fileroot[60], filermspot[60], fileucell[60], fileout[60], filepts[60],fileptsfro[60],fileptsnw[60],
      fileatoms[60], filexch[60], resname[60], fileclust[60], filelist[60], strdate1[80];
 
 void randome (integer *, integer *, double *);
@@ -196,13 +196,13 @@ int main(){
 
         strncpy(filepts,fileroot,50);
         strncat(filepts,".pts-jag",20);
-        strncpy(fileptscry,fileroot,50);
-        strncat(fileptscry,".pts-cry",20);
+        strncpy(fileptsfro,fileroot,50);
+        strncat(fileptsfro,".pts-fro",20);
         strncpy(fileptsnw,fileroot,50);
         strncat(fileptsnw,".pts-nw",20);
         ptsfilenw=fopen(fileptsnw,"w");
         ptsfile=fopen(filepts, "w");
-        ptsfilecry=fopen(fileptscry,"w");
+        ptsfilefro=fopen(fileptsfro,"w");
         if (ptsfile == NULL) {
                 fprintf(outfile, " unable to open output point charge file %s- exit\n", filepts);
                 exit(1);
@@ -1173,7 +1173,7 @@ int main(){
                                                 qmad[imad],xmad[imad],  ymad[imad], zmad[imad]);
                                         fprintf(ptsfilenw, "  bq%ld %25.20f %25.20f %25.20f charge %25.20f\n",
                                                 imad+1,xmad[imad],ymad[imad],zmad[imad],qmad[imad]);
-                                        fprintf(ptsfilecry,"%25.20f %25.20f %25.20f %25.20f\n",
+                                        fprintf(ptsfilefro,"%25.20f %25.20f %25.20f %25.20f\n",
                                                 xmad[imad],ymad[imad],zmad[imad],qmad[imad]);
                                 }
                         }
@@ -1986,7 +1986,7 @@ int main(){
                         fprintf(ptsfilenw, "  bq%ld %25.20f %25.20f %25.20f charge %25.20f\n",
                                 n+1+imadmax,xpt[ipt],ypt[ipt],zpt[ipt],qpt[ipt]);
                 }
-                if (ifatom != 1) fprintf(ptsfilecry, "%25.20f %25.20f %25.20f %25.20f\n",
+                if (ifatom != 1) fprintf(ptsfilefro, "%25.20f %25.20f %25.20f %25.20f\n",
                                          xpt[ipt],  ypt[ipt], zpt[ipt], qpt[ipt]);
                 if (ifatom != 1) fprintf(ptsfile, "%25.20f\t%25.20f\t%25.20f\t%25.20f\n", qpt[ipt],
                                          xpt[ipt],  ypt[ipt], zpt[ipt]);
@@ -1994,7 +1994,7 @@ int main(){
 
         fclose(ptsfile);
         fclose(ptsfilenw);
-        fclose(ptsfilecry);
+        fclose(ptsfilefro);
 
         rmspot = 0.;
         nomad =0;
