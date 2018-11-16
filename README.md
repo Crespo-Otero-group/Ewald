@@ -4,6 +4,7 @@ Program to fit arrays of point charges to an Ewald potential
 This is a fork of the Ewald program by Klintenberg, Derenzo and Weber. The original can be found at [Computer Physics Communications](http://cpc.cs.qub.ac.uk/summaries/ADME_v1_0.html).
 The purpose of this fork is to work easily with the `fromage` package.
 
+The program is redistributed with explicit permission from the original authors as required by the Computer Physics Communications license.
 # Dependencies
 
 - lapack
