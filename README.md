@@ -32,7 +32,7 @@ Further instructions and usage are identical to the original program and can be 
 - The lattice charge can be up to 10e-7 instead of a strict 0.0
 - The maximum amount of atoms in the unit cell has been increased to 1,000 
 - The maximum amount of atoms in the cluster has been increased to 10,000
-- Outputs an additional point charge file with a convenient format with the extension .pts-cry
+- Outputs an additional point charge file with a convenient format with the extension .pts-fro
 - Uses the dgelsy_ function from lapack instead of the deprecated dgelsx_ which is unavailable under some installations
 - Beautified
 
